@@ -1,0 +1,37 @@
+{
+    "uuids": {
+        "phone_id": "70839187-08b6-456c-ad27-9eea070c50f8",
+        "uuid": "d3481e1d-36fd-478e-9dfe-d8443adac979",
+        "client_session_id": "9e593504-a12b-450f-b2b6-ce267e907439",
+        "advertising_id": "4b6a571f-a154-4635-88db-d1a398db4cd8",
+        "android_device_id": "android-4db082911ebbefc6",
+        "request_id": "716d373f-aa4f-495b-98f7-a0395d7622b7",
+        "tray_session_id": "084c1d88-c9d0-4465-822c-cf015e070801"
+    },
+    "mid": "ZLoSagABAAHp3jeRLJcg8WjrouHC",
+    "ig_u_rur": null,
+    "ig_www_claim": null,
+    "authorization_data": {
+        "ds_user_id": "45331931537",
+        "sessionid": "45331931537%3A6AkU7vJuxpURhQ%3A4%3AAYdKAfgnMnlq1mt1nuwXemE4McsItxe9PaUm5EUNIQ"
+    },
+    "cookies": {},
+    "last_login": 1689916023.8934114,
+    "device_settings": {
+        "app_version": "269.0.0.18.75",
+        "android_version": 26,
+        "android_release": "8.0.0",
+        "dpi": "480dpi",
+        "resolution": "1080x1920",
+        "manufacturer": "OnePlus",
+        "device": "devitron",
+        "model": "6T Dev",
+        "cpu": "qcom",
+        "version_code": "314665256"
+    },
+    "user_agent": "Instagram 194.0.0.36.172 Android (26/8.0.0; 480dpi; 1080x1920; Xiaomi; MI 5s; capricorn; qcom; en_US; 301484483)",
+    "country": "US",
+    "country_code": 1,
+    "locale": "en_US",
+    "timezone_offset": -25200
+}
