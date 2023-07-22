@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    .page a,.page span{
+        padding: 2px 6px;
+        color: #fff;
+        background: #6666ff;
+        text-decoration: none;
+    }
+    .page span{
+        color: #fff;
+        background: orange;
+    }
+
+    </style>
+</head>
+<body>
+    <table border="1" align="center" width="600">
+        <tr>
+           <th>username</th>
+           <th>full_name</th>
+           <th>pk</th>
+           <th>media_count</th>
+           <th>follower_count</th>
+           <th>following_count</th>
+           <th>external_url</th>
+           <th>public_email</th>
+           <th>city</th>
+        </tr>
+        <!-- {% for InsStar in pagination.items %}
+        <tr>
+           <td>{{ InsStar.username }}</td>
+           <td>{{ InsStar.full_name }}</td>
+           <td>{{ InsStar.pk }}</td>
+           <td>{{ InsStar.media_count }}</td>
+           <td>{{ InsStar.follower_count }}</td>
+           <td>{{ InsStar.following_count }}</td>
+           <td>{{ InsStar.external_url }}</td>
+           <td>{{ InsStar.public_email }}</td>
+           <td>{{ InsStar.city }}</td>
+        </tr>
+        {% endfor %} -->
+        <tr align="center">
+            <td colspan="5" class="page">
+                {% if pagination.has_prev %}
+                <a href="?page=1">首  页</a>
+                <a href="?page={{ pagination.page-1 }}">上一页</a>
+                <a href="?page={{ pagination.page-1 }}">{{ pagination.page-1 }}</a>
+                {% endif %}
+                <span>{{ pagination.page }}</span>
+                {% if pagination.has_next %}
+                <a href="?page={{ pagination.page+1 }}">{{ pagination.page+1 }}</a>
+                <a href="?page={{ pagination.page+1 }}">下一页</a>
+                <a href="?page={{ pagination.pages }}">尾  页</a>
+                {% endif %}
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
