@@ -3,3 +3,5 @@
 *.png
 *.prof
 /src/**/__pycache__
+/*.csv
+ig_settings.json
