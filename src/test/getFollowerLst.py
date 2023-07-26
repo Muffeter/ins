@@ -5,12 +5,14 @@ sys.path.append(api_path)
 from bot import Bot, PleaseWaitFewMinutes, ClientError
 from requests import HTTPError
 import time, csv
-
+# import heartrate
+# heartrate.trace(browser=True)
 bot = Bot()
-print("finish login")
+print("Finish login")
 keyword = ["UGC","Makeup","Skincare"]
-lst = bot.getMedia("glasses", amount=100)
-print("finish getMedia")
+print("Getting Media")
+lst = bot.getMedia(keyword, amount=40)
+print("Finish getMedia")
 try:
     user_pklst = (bot.getUser(l) for l in lst if Bot.getFollower_count(bot.getUser(l)) > 1000)
 except Exception as e:

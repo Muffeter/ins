@@ -1,0 +1,4 @@
+bot:
+  - Username: root
+  - Password: root
+  - Proxy: http://127.0.0.1:10890

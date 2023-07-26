@@ -4,4 +4,5 @@
 *.prof
 /src/**/__pycache__
 /*.csv
+config.yaml
 ig_settings.json
