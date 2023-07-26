@@ -8,10 +8,11 @@ import time, csv
 
 bot = Bot()
 print("finish login")
+keyword = ["UGC","Makeup","Skincare"]
 lst = bot.getMedia("glasses", amount=100)
 print("finish getMedia")
 try:
-    user_pklst = (bot.getUser(l) for l in lst if Bot.getFollower_count(bot.getUser(l)) > 100)
+    user_pklst = (bot.getUser(l) for l in lst if Bot.getFollower_count(bot.getUser(l)) > 1000)
 except Exception as e:
     print(e)
 with open("data.csv", "w+",  encoding='utf-8') as f:
