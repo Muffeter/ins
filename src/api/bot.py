@@ -10,7 +10,7 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 yaml_path = os.path.join(current_dir, '..', '..', 'config.yaml')
 UserName = ""
 PassWd = ""
-Proxy = "http://127.0.0.1:10809"
+Proxy = ""
 LoginWithPwd = 0
 with open(yaml_path, "r", encoding='utf-8') as f:
     yamlFile = yaml.safe_load(f)
@@ -160,6 +160,44 @@ class Bot:
         # return self._cl.media_info_gql(int(media.pk)).dict()["user"]["pk"]
         logging.info("")
         return self._cl.user_info(media.user.pk)
+    
+    
+    @staticmethod
+    def getEmail(user: User) -> str:
+        return user.public_email
+    
+    @staticmethod
+    def getUsername(user: User) -> str:
+        return user.username
+    
+    @staticmethod
+    def getUserID(user: User) -> int:
+        return int(user.pk)
+    
+    @staticmethod
+    def getUserLink(user: User) -> str:
+        return "https://www.instagram.com" + user.username
+    
+    @staticmethod
+    def getFullName(user: User) -> str:
+        return user.full_name
+    
+    @staticmethod
+    def getMediaTime(media: Media) -> str:
+        return media.taken_at.strftime("%Y-%m-%d")
+    
+    @staticmethod
+    def getCommentCount(media: Media) -> int:
+        return media.comment_count
+    
+    @staticmethod
+    def getLikeCount(media: Media) -> int:
+        return media.like_count
+    
+    @staticmethod
+    def getMediaUrl(media: Media) -> str:
+        return "https://www.instagram.com/p/" + media.code
+    
     @staticmethod
     def getFollower_count(
         user: User
