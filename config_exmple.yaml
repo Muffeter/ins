@@ -1,6 +1,0 @@
-bot:
-  Username: root
-  Password: root
-  Proxy: http://127.0.0.1:80
-  LoginWithPassWd: 1
-  ProxyServer: xxx.com
