@@ -66,19 +66,18 @@ class Ins:
         except requests.exceptions.RequestException:
             raise 'Request error, please try again and check your Internet settings'
 
-
-    def getUserBytag(self, tagName: str, mode: str)->list:
+    def getUsernameBytag(self, tagName: str, mode: str)->list:
         """_summary_
 
         Args:
             tagName (str): tag name
             mode (str): "top" | "rencet"
-        return media list
+        return username list
         """
         params = {
             'tag_name': tagName,
         }
-        user_lst = []
+        username_lst = []
         resp = self.ajax_request('https://www.instagram.com/api/v1/tags/web_info/', params=params)
         if resp:
             try:
@@ -89,11 +88,8 @@ class Ins:
             for section_value in sections:
                 medias = section_value.get('layout_content', {}).get('medias', {})
                 for media_value in medias:
-                    # print(media_value)
-                    # print(type(media_value))
-                    user_lst.append(media_value.get('media', {}).get('user', {}).get('username', {}))
-            return user_lst
-
+                    username_lst.append(media_value.get('media', {}).get('user', {}).get('username', {}))
+            return username_lst
 
     def get_userInfo(self, userName: str):
         """
@@ -139,7 +135,6 @@ class Ins:
 
         sleep_time = random.uniform(start, end)
         time.sleep(sleep_time)
-
 
     def get_userPosts(self, userName: str):
         """
