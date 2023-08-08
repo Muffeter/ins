@@ -116,10 +116,10 @@ class Ins:
                 'id': data.get('id'),
                 'followed_by': data.get('edge_followed_by', {}).get('count'),
                 'follow': data.get('edge_follow', {}).get('count'),
-                'avatar': data.get('profile_pic_url_hd'),
                 'noteCount': data.get('edge_owner_to_timeline_media', {}).get('count'),
                 'is_private': data.get('is_private'),
-                'is_verified': data.get('is_verified')
+                'is_verified': data.get('is_verified'),
+                'business_email': data.get('business_email')
             } if data else 'unknown User'
 
     def randSleep(self, interval: list):
@@ -238,23 +238,10 @@ class Ins:
             caption = post.get('caption')
             item = {
                 'code': post.get('code'),
-                'id': post.get('pk'),
-                'pk_id': post.get('id'),
+                'user_id':str(post.get('id')).split('_')[1],
                 'comment_count': post.get('comment_count'),
                 'like_count': post.get('like_count'),
-                'text': caption.get('text') if caption else None,
-                'created_at': caption.get('created_at') if caption else post.get('taken_at'),
+                'introduction': caption.get('text') if caption else None,
+                'create_time': caption.get('created_at') if caption else post.get('taken_at'), 
             }
-            # other type can be added by yourself
-            types = post.get('media_type')
-            item.update({
-                'photo': [_.get('image_versions2', {}).get('candidates', [{}])[0].get('url') for _ in
-                          post.get('carousel_media')]
-            }) if types == 8 else None
-            item.update({
-                'video': post.get('video_versions', [{}])[0].get('url')
-            }) if types == 2 else None
-            item.update({
-                'photo': post.get('image_versions2', {}).get('candidates', [{}])[0].get('url')
-            }) if types == 1 else None
             yield item

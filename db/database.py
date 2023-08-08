@@ -32,3 +32,24 @@ class DatabaseManager:
             result  = cursor.fetchall()
         self.connection.commit()
         return result
+    
+    def remove_duplicate_rows(self):
+        try:
+            with self.connection.cursor() as cursor:
+                # 构建 SQL 查询，选择每个用户名的最小 ID
+                select_query = """
+                    SELECT MIN(ID) AS min_id, username
+                    FROM users
+                    GROUP BY username
+                """
+                cursor.execute(select_query)
+                results = cursor.fetchall()
+                delete_query = """
+                    DELETE FROM users
+                    WHERE ID NOT IN ({})
+                """.format(','.join(str(result['min_id']) for result in results))
+                cursor.execute(delete_query)
+                self.connection.commit()
+                print("Duplicate rows removed successfully.")
+        except Exception as e:
+            print("An error occurred:", e)
