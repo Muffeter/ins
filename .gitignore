@@ -3,6 +3,9 @@
 *.png
 *.prof
 /src/**/__pycache__
-/*.csv
-config.yaml
-ig_settings.json
+/venv
+/__pycache__
+/gui_to_spider.json
+/data.csv
+/gui.py
+/test.py
